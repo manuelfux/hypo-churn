@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hypo-churn-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MODEL_NAME=best_model_random_forest
+    volumes:
+      # Mount models directory for easy model updates without rebuild
+      - ./models:/app/models:ro
+      # Optional: Mount source for development (comment out for production)
+      # - ./src:/app/src:ro
+      # - ./api:/app/api:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - hypo-churn-network
+
+networks:
+  hypo-churn-network:
+    driver: bridge

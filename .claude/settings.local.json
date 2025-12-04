@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(python -m venv:*)",
+      "Bash(./venv/bin/pip install:*)",
+      "Bash(./venv/bin/pytest tests/ -v)",
+      "WebSearch",
+      "Bash(chmod:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(python scripts/download_datasets.py:*)",
+      "Bash(jupyter nbconvert:*)",
+      "Bash(python:*)",
+      "Bash(jupyter notebook:*)",
+      "Bash(netstat:*)",
+      "Bash(ss:*)",
+      "Bash(sudo apt-get update:*)",
+      "Bash(sudo apt-get install:*)",
+      "Bash(pandoc:*)",
+      "Bash(pytest:*)",
+      "Bash(tree:*)",
+      "Bash(claude:*)",
+      "Bash(du:*)",
+      "Bash(docker:*)",
+      "Bash(docker compose:*)",
+      "Bash(make help:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
